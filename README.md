@@ -8,7 +8,7 @@ Caching (in-memory or Redis) is used to improve performance and reduce external 
 ### How to run Local
 The application provides a **local profile** that uses in-memory cache and mocks for the external API.
 
-- **From console**: ```bash ./mvnw spring-boot:run -Dspring-boot.run.profiles=local```.
+- **From console**: ```mvn spring-boot:run -Dspring-boot.run.profiles=local```.
 - **From IntelliJ (or any IDE)** set profile **local**
 
 ### How to run in "Prod" Mode
