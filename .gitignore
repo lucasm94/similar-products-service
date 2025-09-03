@@ -1,0 +1,14 @@
+# Compilados de Java
+*.class
+
+# Paquetes
+*.jar
+
+# Directorios de compilación
+/target/
+/bin/
+/out/
+
+# IntelliJ IDEA
+.idea/
+*.iml

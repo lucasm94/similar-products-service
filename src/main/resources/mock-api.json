@@ -1,0 +1,18 @@
+{
+  "similar-ids": {
+    "1": ["2", "3"],
+    "2": ["3"],
+    "3": [],
+    "4": "NOT_FOUND",
+    "5": "ERROR",
+    "fallback": ["f1", "f2"]
+  },
+  "product-details": {
+    "1": { "id": "1", "name": "Shirt", "price": 9.99, "availability": true },
+    "2": { "id": "2", "name": "Jeans", "price": 19.99, "availability": true },
+    "3": { "id": "3", "name": "Sneakers", "price": 49.99, "availability": false },
+    "4": "NOT_FOUND",
+    "5": "ERROR",
+    "fallback": { "id": "fallback", "name": "Fallback Product", "price": 0.0, "availability": false }
+  }
+}

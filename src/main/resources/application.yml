@@ -1,0 +1,57 @@
+spring:
+  application:
+    name: similar-products-service
+  cache:
+    type: redis
+  data:
+    redis:
+      host: ${SPRING_REDIS_HOST:localhost}
+      port: ${SPRING_REDIS_PORT:6379}
+
+server:
+  port: 5000
+
+external:
+  api:
+    base-url: ${EXTERNAL_API_BASE_URL:http://localhost:3001}
+    similar-ids-path: /product/{productId}/similarids
+    product-detail-path: /product/{productId}
+
+logging:
+  level:
+    root: INFO
+    com.inditex.similarproducts: INFO
+
+resilience4j:
+  retry:
+    instances:
+      similarIds:
+        max-attempts: 3
+        wait-duration: 1s
+      productDetail:
+        max-attempts: 3
+        wait-duration: 1s
+  circuitbreaker:
+    instances:
+      similarIds:
+        sliding-window-type: COUNT_BASED
+        sliding-window-size: 50
+        minimum-number-of-calls: 20
+        failure-rate-threshold: 50
+        wait-duration-in-open-state: 10s
+
+cache:
+  product-detail-ttl: 30m
+  similar-ids-ttl: 1h
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: prometheus
+  metrics:
+    enable:
+      all: true
+  health:
+    redis:
+      enabled: false

@@ -1,0 +1,8 @@
+global:
+  scrape_interval: 15s
+
+scrape_configs:
+  - job_name: 'similar-products-service'
+    metrics_path: '/actuator/prometheus'
+    static_configs:
+      - targets: ['similar-products-service:5000']
